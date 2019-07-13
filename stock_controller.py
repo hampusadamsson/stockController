@@ -32,4 +32,4 @@ def cntrl_get_stock_last_days(symbol, days_limit):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0")
