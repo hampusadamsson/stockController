@@ -1,10 +1,12 @@
 import json
 import os
 from flask import Flask
+from flask_cors import CORS
 
 from Data_manager import get_stock, get_distinct_stocks
 
 app = Flask(__name__)
+CORS(app)
 filename = os.path.join(app.root_path, 'resources', 'stocks.db')
 
 
@@ -33,3 +35,4 @@ def cntrl_get_stock_last_days(symbol, days_limit):
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
+
