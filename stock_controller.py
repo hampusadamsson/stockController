@@ -7,8 +7,9 @@ from Data_manager import get_stock, get_distinct_stocks
 
 app = Flask(__name__)
 CORS(app)
-filename = os.path.join(app.root_path, 'resources', 'stocks.db')
-
+# filename = os.path.join(app.root_path, 'resources', 'stocks.db')
+filename = os.environ['STOCKDB']
+print(filename)
 
 @app.route('/health')
 def health():
