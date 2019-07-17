@@ -11,8 +11,8 @@ def get_stock(src, symbol, limit=10):
     return query(src, "SELECT * FROM stocks WHERE symbol == '{}' ORDER BY date DESC LIMIT '{}';".format(symbol, limit))
 
 
-def get_stock_at_date(src, symbol, date):
-    return query(src, "SELECT * FROM stocks WHERE symbol == '{}' AND date == '{}';".format(symbol, date))
+def get_stock_at_date(src, symbol, date, days_limit):
+    return query(src, "SELECT * FROM stocks WHERE symbol == '{}' AND date <= '{}' ORDER BY date DESC LIMIT '{}';".format(symbol, date, days_limit))
 
 
 def get_distinct_stocks(src):

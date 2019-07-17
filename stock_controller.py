@@ -34,9 +34,9 @@ def cntrl_get_stock_last_days(symbol, days_limit):
     return df.to_json()
 
 
-@app.route('/getStockAtDate/<symbol>/<date>')
-def cntrl_get_stock_at_date(symbol, date):
-    df = get_stock_at_date(filename, symbol, date)
+@app.route('/getStockAtDate/<symbol>/<date>/<days_limit>')
+def cntrl_get_stock_at_date(symbol, date, days_limit):
+    df = get_stock_at_date(filename, symbol, date, days_limit)
     return df.to_json()
 
 
