@@ -3,7 +3,7 @@ import os
 from flask import Flask
 from flask_cors import CORS
 
-from Data_manager import get_stock, get_distinct_stocks
+from Data_manager import get_stock, get_distinct_stocks, get_stock_at_date
 
 app = Flask(__name__)
 CORS(app)
@@ -34,6 +34,11 @@ def cntrl_get_stock_last_days(symbol, days_limit):
     return df.to_json()
 
 
-if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+@app.route('/getStockAtDate/<symbol>/<date>')
+def cntrl_get_stock_at_date(symbol, date):
+    df = get_stock_at_date(filename, symbol, date)
+    return df.to_json()
+
+
+app.run(host="0.0.0.0")
 
